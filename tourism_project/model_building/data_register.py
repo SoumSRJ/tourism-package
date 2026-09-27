@@ -4,6 +4,7 @@ RAW_PATH = "tourism_project/data/tourism.csv"
 
 # Load the raw dataset
 df = pd.read_csv(RAW_PATH)
+df = df.drop(df.columns[0], axis=1) #dropping the first column
 
 # Validate that the expected columns are present before registering it
 expected_columns = [
@@ -11,8 +12,7 @@ expected_columns = [
     "CityTier", "DurationOfPitch", "Occupation", "Gender","NumberOfPersonVisiting",
     "NumberOfFollowups","ProductPitched", "PreferredPropertyStar", "MaritalStatus",
     "NumberOfTrips", "Passport", "PitchSatisfactionScore", "OwnCar", "NumberOfChildrenVisiting",
-    "Designation", "MonthlyIncome"
-]
+    "Designation", "MonthlyIncome"]
 missing = [c for c in expected_columns if c not in df.columns]
 if missing:
     raise ValueError(f"Dataset is missing expected columns: {missing}")
