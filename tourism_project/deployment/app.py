@@ -15,15 +15,26 @@ Enter the sensor and configuration data below to get a prediction.
 
 Occupation   = st.selectbox("Occupation", ["Salaried", "Small Business", "Large Business", "Free lancer"])
 Gender     = st.selectbox("Gender", ["Male", "Female"])
-Age = st.number_input("Age", min_value=18, max_value=100)
+Age = st.number_input("Age", min_value=18, max_value=100, value=30)
 MaritalStatus = st.selectbox("MaritalStatus", ["Divorced", "Married","Single"])
 TypeofContact    = st.selectbox("TypeofContact", ["Self Enquiry","Company Invited"])
 CityTier       = st.selectbox("CityTier", [1, 2, 3])
 NumberOfPersonVisiting = st.selectbox("NumberOfPersonVisiting", [1, 2, 3, 4, 5])
 NumberOfChildrenVisiting = st.selectbox("NumberOfChildrenVisiting", [0, 1, 2, 3])
 Designation = st.selectbox("Designation", ["Executive", "Managerial","AVP","Senior Manager","VP"])
-MonthlyIncome = st.number_input("MonthlyIncome", min_value=0)
+MonthlyIncome = st.number_input("MonthlyIncome", min_value=0, value=25000)
 
+# --- Additional fields identified as missing --- 
+DurationOfPitch = st.number_input("DurationOfPitch", min_value=5, max_value=127, value=10)
+NumberOfFollowups = st.number_input("NumberOfFollowups", min_value=1, max_value=6, value=3)
+ProductPitched = st.selectbox("ProductPitched", ['Basic', 'Deluxe', 'Standard', 'Super Deluxe', 'King'])
+PreferredPropertyStar = st.number_input("PreferredPropertyStar", min_value=3, max_value=5, value=3)
+NumberOfTrips = st.number_input("NumberOfTrips", min_value=1, max_value=22, value=2)
+Passport_input = st.selectbox("Passport", ['No', 'Yes'])
+Passport = 1 if Passport_input == 'Yes' else 0
+PitchSatisfactionScore = st.number_input("PitchSatisfactionScore", min_value=1, max_value=5, value=3)
+OwnCar_input = st.selectbox("OwnCar", ['No', 'Yes'])
+OwnCar = 1 if OwnCar_input == 'Yes' else 0
 
 
 
@@ -37,7 +48,15 @@ input_data = pd.DataFrame([{
     "NumberOfPersonVisiting": NumberOfPersonVisiting,
     "NumberOfChildrenVisiting": NumberOfChildrenVisiting,
     "Designation": Designation,
-    "MonthlyIncome": MonthlyIncome
+    "MonthlyIncome": MonthlyIncome,
+    "DurationOfPitch": DurationOfPitch,
+    "NumberOfFollowups": NumberOfFollowups,
+    "ProductPitched": ProductPitched,
+    "PreferredPropertyStar": PreferredPropertyStar,
+    "NumberOfTrips": NumberOfTrips,
+    "Passport": Passport,
+    "PitchSatisfactionScore": PitchSatisfactionScore,
+    "OwnCar": OwnCar
 
 }])
 
