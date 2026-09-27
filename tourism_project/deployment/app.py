@@ -14,13 +14,13 @@ Enter the sensor and configuration data below to get a prediction.
 """)
 
 Occupation   = st.selectbox("Occupation", ["Salaried", "Small Business", "Large Business", "Free lancer"])
-Gender     = st.number_input("Gender", ["Male", "Female"])
-MaritalStatus = st.number_input("MaritalStatus", ["Divorced", "Married","Single"])
-TypeofContact    = st.number_input("TypeofContact", ["Self Enquiry","Company Invited"])
+Gender     = st.selectbox("Gender", ["Male", "Female"])
+MaritalStatus = st.selectbox("MaritalStatus", ["Divorced", "Married","Single"])
+TypeofContact    = st.selectbox("TypeofContact", ["Self Enquiry","Company Invited"])
 CityTier       = st.number_input("CityTier", 1, 2, 3)
 NumberOfPersonVisiting = st.number_input("NumberOfPersonVisiting", 1, 2, 3, 4, 5)
 NumberOfChildrenVisiting = st.number_input("NumberOfChildrenVisiting", 0, 1, 2, 3)
-Designation = st.number_input("Designation", ["Executive", "Managerial","AVP","Senior Manager","VP"])
+Designation = st.selectbox("Designation", ["Executive", "Managerial","AVP","Senior Manager","VP"])
 
 
 
