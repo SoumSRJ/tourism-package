@@ -10,10 +10,6 @@ df = df.drop(columns=["CustomerID"])
 df['Gender'] = df['Gender'].replace('Fe male', 'Female') # rectifying the gender column
 df['MaritalStatus'] = df['MaritalStatus'].replace('Unmarried', 'Single') #merging the unmarried values into single
 
-# NOTE: 'Type' is intentionally left as raw strings (H/L/M).
-# The training pipeline one-hot-encodes it, and the Streamlit app also sends
-# raw H/L/M values. Encoding it here (e.g. LabelEncoder) would make training
-# and serving use different representations, silently breaking predictions.
 
 X = df.drop(columns=["ProdTaken"])
 y = df["ProdTaken"]
